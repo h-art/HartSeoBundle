@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="hart_seo.admin.seo">Hart\SeoBundle\Admin\SeoAdmin</parameter>
+        <parameter key="hart_seo.manager.class">Hart\SeoBundle\Manager\SeoManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="hart_seo.admin.seo" class="%hart_seo.admin.seo%">
+            <tag name="sonata.admin" manager_type="orm" group="Cms" label="Seo"/>
+            <argument/>
+            <argument>Hart\SeoBundle\Entity\Seo</argument>
+            <argument />
+        </service>
+
+        <service id="hart_seo.manager" class="%hart_seo.manager.class%">
+            <call method="setEntityManager">
+                <argument type="service" id="doctrine.orm.entity_manager" />
+            </call>
+            <call method="setTranslator">
+                <argument type="service" id="translator" />
+            </call>
+            <call method="setRequest">
+                <argument type="service" id="request" on-invalid="null" strict="false" />
+            </call>
+        </service>
+    </services>
+</container>

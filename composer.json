@@ -1,0 +1,23 @@
+{
+  "name": "hart/seo-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony HartUSeoBundle",
+  "keywords": ["seo", "hart"],
+  "homepage": "https://github.com/h-art",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "H-ART",
+      "homepage": "https://github.com/h-art/HartSeoBundle/contributors"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "~2.3",
+    "knplabs/doctrine-behaviors": "~1.1",
+    "sonata-project/admin-bundle": "~2.3",
+    "a2lix/translation-form-bundle": "2.0.4"
+  },
+  "autoload": {
+    "psr-4": { "Hart\\SeoBundle\\": "" }
+  }
+}
