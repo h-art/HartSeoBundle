@@ -5,12 +5,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="hart_seo.admin.seo">Hart\SeoBundle\Admin\SeoAdmin</parameter>
+        <parameter key="hart_seo.admin.seo.class">Hart\SeoBundle\Admin\SeoAdmin</parameter>
         <parameter key="hart_seo.manager.class">Hart\SeoBundle\Manager\SeoManager</parameter>
     </parameters>
 
     <services>
-        <service id="hart_seo.admin.seo" class="%hart_seo.admin.seo%">
+        <service id="hart_seo.admin.seo" class="%hart_seo.admin.seo.class%">
             <tag name="sonata.admin" manager_type="orm" group="Cms" label="Seo"/>
             <argument/>
             <argument>Hart\SeoBundle\Entity\Seo</argument>
